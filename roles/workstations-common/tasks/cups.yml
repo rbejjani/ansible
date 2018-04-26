@@ -2,7 +2,7 @@
 # file: roles/workstation-common/tasks/cups.yml
 
 - name: be sure cups is installed
-  dnf: name=cups state=installed 
+  dnf: name=cups state=installed
   tags:
    - install
    - cups

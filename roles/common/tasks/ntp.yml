@@ -2,7 +2,7 @@
 # file: roles/common/tasks/main.yml
 
 - name: be sure ntp and ntpdate are installed
-  dnf: name=ntp state=installed 
+  dnf: name=ntp state=installed
   tags:
    - install
    - ntp
