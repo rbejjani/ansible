@@ -68,6 +68,14 @@
    - atomic
    - display-manager
 
+- name: copy school theme files for LightDM for >= F26
+  unarchive: src=display-manager/lightdm-gtk/LES.tar.gz dest=/usr/share/themes
+  when: ansible_distribution == "Fedora" and ansible_distribution_major_version|int >= 26
+  tags:
+   - install
+   - atomic
+   - display-manager
+
 - name: copy school config files for LightDM on < F23
   copy: src=display-manager/conf/1/ dest=/etc/lightdm/
   when: ansible_distribution == "Fedora" and ansible_distribution_major_version|int < 23
@@ -87,6 +95,14 @@
 - name: copy school config files for LightDM on == F25
   copy: src=display-manager/conf/3/ dest=/etc/lightdm/
   when: ansible_distribution != "Fedora" or ansible_distribution_major_version|int == 25
+  tags:
+   - install
+   - atomic
+   - display-manager
+
+- name: copy school config files for LightDM on >= F26
+  copy: src=display-manager/conf/4/ dest=/etc/lightdm/
+  when: ansible_distribution != "Fedora" or ansible_distribution_major_version|int >= 26
   tags:
    - install
    - atomic

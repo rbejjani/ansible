@@ -71,8 +71,9 @@
    - atomic
    - display-manager
 
-- name: disable GNOME initial setup
-  copy: src=display-manager/gdm/custom.conf dest=/etc/gdm
+- name: copy GDM config
+  synchronize: src=display-manager/gdm/gdm-config/ dest=/etc/gdm/ archive=yes
+  #copy: src=display-manager/gdm/gdm-config/ dest=/etc/gdm/
   tags:
    - install
    - atomic
@@ -80,6 +81,13 @@
 
 - name: copy school config files for Xorg
   copy: src=xorg/xorg.conf.d-2/ dest=/etc/X11/xorg.conf.d
+  tags:
+   - install
+   - atomic
+   - display-manager
+
+- name: copy gdm home configuration
+  copy: src=display-manager/gdm/home/ dest=/var/lib/gdm/ owner=gdm group=gdm
   tags:
    - install
    - atomic

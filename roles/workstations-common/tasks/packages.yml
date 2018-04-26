@@ -29,6 +29,26 @@
    - languages
    - fonts
 
+- name: install libvirt
+  dnf: name="libvirt"
+  when: ansible_distribution == "Fedora" and ansible_distribution_major_version|int >= 22
+  tags:
+   - install
+   - packages
+   - repo
+   - languages
+   - fonts
+
+- name: install thonny
+  dnf: name="thonny"
+  when: ansible_distribution == "Fedora" and ansible_distribution_major_version|int >= 22
+  tags:
+   - install
+   - packages
+   - repo
+   - languages
+   - fonts
+
 - name: set package manager to yum
   set_fact: yum="yum"
   when: ansible_distribution != "Fedora" or ansible_distribution_major_version|int < 22

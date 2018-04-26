@@ -2,7 +2,7 @@
 # file: roles/common/tasks/disable-firewalld.yml
 
 - name: be sure firewalld is installed
-  dnf: name=firewalld state=installed
+  dnf: name=firewalld state=installed 
   tags:
    - install
    - firewalld
