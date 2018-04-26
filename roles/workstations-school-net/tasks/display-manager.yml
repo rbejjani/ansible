@@ -1,7 +1,7 @@
 ---
 # file: roles/workstations-school/tasks/display-maanger.yml
 
-- include: lightdm.yml  
+- include: lightdm.yml 
   when: ansible_distribution != "Fedora" or ansible_distribution_major_version|int < 26
   tags:
    - install
